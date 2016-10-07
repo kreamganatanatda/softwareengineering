@@ -26,7 +26,7 @@ public class Client {
         //2-Длинное название опции
         //3-Флаг, который показывает, есть ли у данной опции какие-либо параметры
         //4-И, собственно, обозначение самой опции, т.е. зачем она добавлена
-        options.addOption("Help", "help", false, "HEEEEEELP!!!!!");
+
         options.addOption("Login", "login", true, "Your Login: ");
         options.addOption("Password","password",true,"Your Password: ");
         options.addOption("Resource","resource",true,"Resource: ");
@@ -55,10 +55,6 @@ public class Client {
             try {
                 cmd = parser.parse(options, args);
 
-                /*if (cmd.hasOption("help")) {
-                    help();
-                }*/
-
                 if (cmd.hasOption("login")) {
                     Parameters.put("login", cmd.getOptionValue("login"));
                     System.out.println("Entered login -->" + Parameters);
@@ -83,26 +79,12 @@ public class Client {
             } catch (ParseException e) {
                 //Если парсинг командной строки прошёл неудачно, то появится сообщение об этом
                 System.err.println("Failed to parse command line properties");
-                //help();
+
             }
 
             return Parameters;
-        }
+        }}
 
 
 
 
-
-    //Функция служащая для вывода на экран справку
-    //private void help() {
-<<<<<<< HEAD
-    /*private static void help(){
-=======
-    private void help(){
->>>>>>> 4980a73e2e11989cecc7a2e06c3d85f153440c99
-        // This prints out some help
-        HelpFormatter formatter = new HelpFormatter();
-        formatter.printHelp("Our options: ", options);
-        System.exit(0);
-    }*/
-//}
