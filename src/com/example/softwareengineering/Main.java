@@ -21,7 +21,7 @@ public class Main {
         RoleList.add(new Role(3, 2, EXECUTE.code(), "a.b.c"));
         RoleList.add(new Role(4, 1, EXECUTE.code(), "a.bc"));
 
-
+    System.out.println(args[0]+" "+args[1]+" "+args[2]);
     System.exit(0);
     }
 }
