@@ -17,7 +17,7 @@ public class Main {
         Role Role3 = new Role(3, 2, EXECUTE.code(), "a.b.c");
         Role Role4 = new Role(4, 1, EXECUTE.code(), "a.bc");
 
-
+    System.out.println(args[0]+" "+args[1]+" "+args[2]);
     System.exit(0);
     }
 }

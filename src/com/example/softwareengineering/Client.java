@@ -90,12 +90,16 @@ public class Client {
         }
 
 
-    }
+
 
 
     //Функция служащая для вывода на экран справку
     //private void help() {
+<<<<<<< HEAD
     /*private static void help(){
+=======
+    private void help(){
+>>>>>>> 4980a73e2e11989cecc7a2e06c3d85f153440c99
         // This prints out some help
         HelpFormatter formatter = new HelpFormatter();
         formatter.printHelp("Our options: ", options);
