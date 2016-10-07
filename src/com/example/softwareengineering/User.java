@@ -14,4 +14,6 @@ class User {
         Password = password;
     }
 
+    public String getLogin(){return Login;}
+    public String getPassword(){return Password;}
 }
