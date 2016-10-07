@@ -13,15 +13,16 @@ class User {
     public String Login;
     public String Password;
     public String Name;
-    public String Salt;
+    //public String Salt;
 
 
     public User(int id, String login, String password, String name) {
         Id = id;
         Login = login;
         Name = name;
-        Salt = generateSalt();
-        Password = MD5(MD5(password)+Salt);
+        Password = password;
+       // Salt = generateSalt();
+       // Password = MD5(MD5(password)+Salt);
     }
 
 }
