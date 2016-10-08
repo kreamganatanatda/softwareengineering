@@ -37,7 +37,7 @@ public class Main {
 
         }
         */
-        System.out.println(args[0] + " " + args[1] + " " + args[2]);
+        
         System.out.println(anArrayOfRoles[1].Resource);
         System.exit(0);
     }
