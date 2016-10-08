@@ -18,18 +18,17 @@ public class Main {
         anArrayOfRoles[3] = new Role(4, 1, EXECUTE.code(), "a.bc");
 
 
-
-/*
-       for (int i = 0; i < 10; i++) {
+        /*for (int i = 0; i < 2; i++) {
             if (anArrayOfUsers[i].Login != Login) {
                 System.out.println("User is not found");
                 System.exit(1);
             }
-            break;*/
+            else System.out.println("User is found");
+            break;}
+*/
 
-/*
 
-            if (anArrayOfUsers[i].Password != password) {
+            /*if (anArrayOfUsers[i].Password != password) {
                 System.out.println("Wrong password");
                 System.exit(2);
             }
@@ -37,7 +36,8 @@ public class Main {
 
         }
         */
-
+            //ljksdfh
+        System.out.println(anArrayOfUsers[0].Login);
         System.out.println(anArrayOfRoles[1].Resource);
         System.exit(0);
     }
