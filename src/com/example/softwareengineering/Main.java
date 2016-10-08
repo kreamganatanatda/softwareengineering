@@ -19,15 +19,15 @@ public class Main {
 
 
 
-
-       /* for (int i = 0; i < 10; i++) {
-            if (anArrayOfUsers[i].Login != login) {
+/*
+       for (int i = 0; i < 10; i++) {
+            if (anArrayOfUsers[i].Login != Login) {
                 System.out.println("User is not found");
                 System.exit(1);
             }
-            break;
+            break;*/
 
-
+/*
 
             if (anArrayOfUsers[i].Password != password) {
                 System.out.println("Wrong password");
