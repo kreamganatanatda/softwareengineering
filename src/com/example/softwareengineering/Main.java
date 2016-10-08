@@ -1,8 +1,5 @@
 package com.example.softwareengineering;
 
-
-import java.util.concurrent.atomic.AtomicReference;
-
 import static com.example.softwareengineering.Permission.*;
 
 public class Main {
@@ -29,6 +26,9 @@ public class Main {
                 System.exit(1);
             }
             break;
+
+
+
             if (anArrayOfUsers[i].Password != password) {
                 System.out.println("Wrong password");
                 System.exit(2);
