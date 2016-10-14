@@ -18,11 +18,12 @@ public class Parse {
         //Создаём парсер командной строки
         CommandLineParser cmdLinePosixParser = new PosixParser();
         //Парсинг
-        CommandLine commandLine = cmdLinePosixParser.parse(posixOption,commandLineArguments);
+        CommandLine commandLine = cmdLinePosixParser.parse(options, commandLine);
 
-
-
-        if (commandLine.hasOption("l")) { /*каким то макаром сеттим логин пользователю*/}
+        if (commandLine.hasOption("l")) {
+            String[] arguments = commandLine.getOptionValues("l");
+            System.out.println("Login: " + arguments[0]);
+        }
         if (commandLine.hasOption("p")){}
         if (commandLine.hasOption("re")){}
         if (commandLine.hasOption("ro")){}
