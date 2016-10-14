@@ -21,7 +21,7 @@ public class Main {
         anArrayOfRoles.add(new Role(4, 1, EXECUTE.code(), "a.bc"));
 
 
-        for (int i = 0; i < anArrayOfUsers.size(); i++) {
+        /*for (int i = 0; i < anArrayOfUsers.size(); i++) {
             if (anArrayOfUsers.get(0).Login != args[1]) {
                 System.out.println("User is not found\n");
                 //System.exit(1);
@@ -38,12 +38,13 @@ public class Main {
             else System.out.println("Correct password\n");
             break;
 
-        }
+        }*/
 
         System.out.println(anArrayOfUsers.get(0).Login); //jdoe
-        System.out.println(args[1]); //jdoe
+        //System.out.println(args[1]); //jdoe
         System.out.println(anArrayOfUsers.get(0).Password); //sup3rpaZZ
-        System.out.println(args[2]); //sup3rpaZZ
+        //System.out.println(args[2]); //sup3rpaZZ
+
         System.exit(0);
     }
 }
