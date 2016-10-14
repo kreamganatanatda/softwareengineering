@@ -16,12 +16,17 @@ public class Parse {
 
     public void ParseCMD(){
         //Создаём парсер командной строки
-        CommandLineParser parser = new PosixParser();
+        CommandLineParser cmdLinePosixParser = new PosixParser();
+        //Парсинг
+        CommandLine commandLine = cmdLinePosixParser.parse(posixOption,commandLineArguments);
 
-        if (parser.hasOption("l")) { /*каким то макаром сеттим логин пользователю*/}
-        if (parser.hasOption("p")){}
-        if (parser.hasOption("re")){}
-        if (parser.hasOption("ro")){}
-        if (parser.hasOption("h")){}
+
+
+        if (commandLine.hasOption("l")) { /*каким то макаром сеттим логин пользователю*/}
+        if (commandLine.hasOption("p")){}
+        if (commandLine.hasOption("re")){}
+        if (commandLine.hasOption("ro")){}
+        HelpFormatter forhelp = new HelpFormatter();
+        if (commandLine.hasOption("h")){}
     }
 }
