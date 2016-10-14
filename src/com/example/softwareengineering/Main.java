@@ -1,4 +1,5 @@
 package com.example.softwareengineering;
+
 import java.util.ArrayList;
 
 import static com.example.softwareengineering.Permission.*;
@@ -26,16 +27,15 @@ public class Main {
                 System.out.println("User is not found\n");
                 //System.exit(1);
                 //неверно сравнивает аргументы
-            }
-            else System.out.println("User is found\n");
-            break;}
+            } else System.out.println("User is found\n");
+            break;
+        }
         for (int i = 0; i < anArrayOfUsers.size(); i++) {
             if (anArrayOfUsers.get(i).Password != args[2]) {
                 System.out.println("Wrong password\n");
                 //System.exit(2);
                 //неверно сравнивает аргументы
-            }
-            else System.out.println("Correct password\n");
+            } else System.out.println("Correct password\n");
             break;
 
         }*/
