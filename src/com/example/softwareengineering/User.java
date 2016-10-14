@@ -10,8 +10,8 @@ class User {
     public User(int id, String login, String password, String name) {
         Id = id;
         Login = login;
-        Name = name;
         Password = password;
+        Name = name;
     }
 
     public String getLogin(){return Login;}
