@@ -3,7 +3,8 @@ import org.apache.commons.cli.*;
 
 
 public class Parse {
-   private Options options = new Options();
+    private Options options = new Options();
+    private CommandLine cmdline;
 
     public Parse()
     {
@@ -14,20 +15,20 @@ public class Parse {
         options.addOption(new Option("h","help",false,"Help Information:"));
     }
 
-    public void ParseCMD(){
+    public void ParseCMD(String[] arg) throws Exception{
         //Создаём парсер командной строки
         CommandLineParser cmdLinePosixParser = new PosixParser();
         //Парсинг
-        CommandLine commandLine = cmdLinePosixParser.parse(options, commandLine);
+        cmdline = cmdLinePosixParser.parse(options, arg);
 
-        if (commandLine.hasOption("l")) {
-            String[] arguments = commandLine.getOptionValues("l");
+        if (cmdline.hasOption("l")) {
+            String[] arguments = cmdline.getOptionValues("l");
             System.out.println("Login: " + arguments[0]);
         }
-        if (commandLine.hasOption("p")){}
-        if (commandLine.hasOption("re")){}
-        if (commandLine.hasOption("ro")){}
+        if (cmdline.hasOption("p")){}
+        if (cmdline.hasOption("re")){}
+        if (cmdline.hasOption("ro")){}
         HelpFormatter forhelp = new HelpFormatter();
-        if (commandLine.hasOption("h")){}
+        if (cmdline.hasOption("h")){}
     }
 }
