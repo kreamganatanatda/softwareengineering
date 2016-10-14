@@ -6,21 +6,15 @@ import static com.example.softwareengineering.Permission.*;
 public class Main {
 
     public static void main(String[] args) {
-        /*User[] anArrayOfUsers = new User[10];
-        Role[] anArrayOfRoles = new Role[4];*/
-        //попробовали использовать списочный массив
+
         ArrayList<User> anArrayOfUsers = new ArrayList<User>();
         ArrayList<Role> anArrayOfRoles = new ArrayList<Role>();
 
-        /*anArrayOfUsers[0] = new User(1, "jdoe", "sup3rpaZZ", "John Doe");
-        anArrayOfUsers[1] = new User(2, "jrow", "Qweqrty12", "Jane Row");*/
+
         anArrayOfUsers.add(new User(1, "jdoe", "sup3rpaZZ", "John Doe"));
         anArrayOfUsers.add(new User(2, "jrow", "Qweqrty12", "Jane Row"));
 
-        /*anArrayOfRoles[0] = new Role(1, 1, "READ", "a");
-        anArrayOfRoles[1] = new Role(2, 1, "WRITE", "a.b");
-        anArrayOfRoles[2] = new Role(3, 2, "EXECUTE", "a.b.c");
-        anArrayOfRoles[3] = new Role(4, 1, "EXECUTE", "a.bc");*/
+
         anArrayOfRoles.add(new Role(1, 1, READ.code(), "a"));
         anArrayOfRoles.add(new Role(2, 1, WRITE.code(), "a.b"));
         anArrayOfRoles.add(new Role(3, 2, EXECUTE.code(), "a.b.c"));
