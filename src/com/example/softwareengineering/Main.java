@@ -48,6 +48,6 @@ public class Main {
         //System.out.println(args[2]); //sup3rpaZZ
 
         new Parse(arg).ParseCMD();
-        System.exit(0);
+        //System.exit(0);
     }
 }
