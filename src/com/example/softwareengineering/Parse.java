@@ -21,6 +21,7 @@ public class Parse {
         //Парсинг
         cmdline = cmdLinePosixParser.parse(options, arg);
 
+
         if (cmdline.hasOption("l")) {
             String[] arguments = cmdline.getOptionValues("l");
             System.out.println("Login: " + arguments[0]);
@@ -28,7 +29,12 @@ public class Parse {
         if (cmdline.hasOption("p")){}
         if (cmdline.hasOption("re")){}
         if (cmdline.hasOption("ro")){}
-        HelpFormatter forhelp = new HelpFormatter();
+
         if (cmdline.hasOption("h")){}
+    
+    public void help(){
+        HelpFormatter forhelp = new HelpFormatter();
+        forhelp.printHelp("HEEELP","This is help-information",options,"The End");
+        System.exit(0);
     }
 }
