@@ -48,10 +48,10 @@ public class ArrayofUsers {
     }
 
     public String getResourse() {
-        return arrpassword;
+        return arrresourse;
     }
 
     public String getRole() {
-        return arrlogin;
+        return arrrole;
     }
 }

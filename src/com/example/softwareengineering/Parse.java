@@ -35,12 +35,12 @@ public class Parse {
                 }
 
                 if (cmdline.hasOption("re")) {
-                    String[] arguments = cmdline.getOptionValues("re");
-                    System.out.println("Resource: " + arguments[0]);
+                    aou.setResourse(cmdline.getOptionValue("re"));
+                    System.out.println("Resource: " + aou.getResourse());
                 }
                 if (cmdline.hasOption("ro")) {
-                    String[] arguments = cmdline.getOptionValues("ro");
-                    System.out.println("Role: " + arguments[0]);
+                    aou.setRole(cmdline.getOptionValue("ro"));
+                    System.out.println("Role: " + aou.getRole());
                 }
                 if (cmdline.hasOption("h")){
                     printhelp(forhelp);
