@@ -1,4 +1,5 @@
 package com.example.softwareengineering;
+
 import org.apache.commons.cli.*;
 
 
@@ -6,35 +7,49 @@ public class Parse {
     private Options options = new Options();
     private CommandLine cmdline;
 
-    public Parse()
-    {
-        options.addOption(new Option("l","login",true,"Your Login:"));
-        options.addOption(new Option("p","password",true,"Your Password:"));
-        options.addOption(new Option("re","resource",true,"Your Resource:"));
-        options.addOption(new Option("ro","role",true,"Your Role:"));
-        options.addOption(new Option("h","help",false,"Help Information:"));
+    public Parse() {
+        options.addOption(new Option("l", "login", true, "Your Login:"));
+        options.addOption(new Option("p", "password", true, "Your Password:"));
+        options.addOption(new Option("re", "resource", true, "Your Resource:"));
+        options.addOption(new Option("ro", "role", true, "Your Role:"));
+        options.addOption(new Option("h", "help", false, "Help Information:"));
     }
 
-    public void ParseCMD(String[] arg) throws Exception{
+    public void ParseCMD(String[] arg) throws ParseException {
         //Создаём парсер командной строки
         CommandLineParser cmdLinePosixParser = new PosixParser();
         //Парсинг
-        cmdline = cmdLinePosixParser.parse(options, arg);
 
-
-        if (cmdline.hasOption("l")) {
-            String[] arguments = cmdline.getOptionValues("l");
-            System.out.println("Login: " + arguments[0]);
-        }
-        if (cmdline.hasOption("p")){}
-        if (cmdline.hasOption("re")){}
-        if (cmdline.hasOption("ro")){}
-
-        if (cmdline.hasOption("h")){}
-    
-    public void help(){
         HelpFormatter forhelp = new HelpFormatter();
-        forhelp.printHelp("HEEELP","This is help-information",options,"The End");
-        System.exit(0);
+
+        try {
+            cmdline = cmdLinePosixParser.parse(options, arg);
+
+            if (cmdline.hasOption("l")) {
+                String[] arguments = cmdline.getOptionValues("l");
+                System.out.println("Login: " + arguments[0]);
+            }
+
+            if (cmdline.hasOption("p")) {
+                String[] arguments = cmdline.getOptionValues("p");
+                System.out.println("Password:" + arguments[0]);
+            }
+
+            if (cmdline.hasOption("re")) {
+                String[] arguments = cmdline.getOptionValues("re");
+                System.out.println("Resource:" + arguments[0]);
+            }
+            if (cmdline.hasOption("ro")) {
+                String[] arguments = cmdline.getOptionValues("ro");
+                System.out.println("Role:" + arguments[0]);
+            }
+        } catch (ParseException e) {
+            if (cmdline.hasOption("h")) {
+                forhelp.printHelp("HEEELP", "This is help-information", options, "The End");
+                System.exit(0);
+            }
+        }
+
     }
 }
+
