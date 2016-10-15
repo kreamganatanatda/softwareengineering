@@ -6,8 +6,8 @@ import org.apache.commons.cli.*;
 public class Parse {
     private Options options = new Options();
     private CommandLine cmdline;
-
-    public Parse() {
+    private String[] arg = null;
+    public Parse(String[] arg) {
         options.addOption(new Option("l", "login", true, "Your Login:"));
         options.addOption(new Option("p", "password", true, "Your Password:"));
         options.addOption(new Option("re", "resource", true, "Your Resource:"));
@@ -15,7 +15,7 @@ public class Parse {
         options.addOption(new Option("h", "help", false, "Help Information:"));
     }
 
-    public void ParseCMD(String[] arg) throws ParseException {
+    public void ParseCMD() throws ParseException {
         //Создаём парсер командной строки
         CommandLineParser cmdLinePosixParser = new PosixParser();
         //Парсинг
@@ -44,7 +44,7 @@ public class Parse {
                 System.out.println("Role:" + arguments[0]);
             }
         } catch (ParseException e) {
-            if (cmdline.hasOption("h")) {
+            if ((cmdline.hasOption("h"))||(cmdline==null)) {
                 forhelp.printHelp("HEEELP", "This is help-information", options, "The End");
                 System.exit(0);
             }
