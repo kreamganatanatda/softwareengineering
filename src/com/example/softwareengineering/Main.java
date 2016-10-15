@@ -1,12 +1,14 @@
 package com.example.softwareengineering;
 
+import org.apache.commons.cli.ParseException;
+
 import java.util.ArrayList;
 
 import static com.example.softwareengineering.Permission.*;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] arg) throws ParseException {
 
         ArrayList<User> anArrayOfUsers = new ArrayList<User>();
         ArrayList<Role> anArrayOfRoles = new ArrayList<Role>();
@@ -40,11 +42,12 @@ public class Main {
 
         }*/
 
-        System.out.println(anArrayOfUsers.get(0).Login); //jdoe
+        //System.out.println(anArrayOfUsers.get(0).Login); //jdoe
         //System.out.println(args[1]); //jdoe
-        System.out.println(anArrayOfUsers.get(0).Password); //sup3rpaZZ
+        //System.out.println(anArrayOfUsers.get(0).Password); //sup3rpaZZ
         //System.out.println(args[2]); //sup3rpaZZ
 
+        new Parse(arg).ParseCMD();
         System.exit(0);
     }
 }
