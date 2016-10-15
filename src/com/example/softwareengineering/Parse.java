@@ -23,26 +23,26 @@ public class Parse {
 
         try {
             cmdline = cmdLinePosixParser.parse(options, arg);
+            if (cmdline != null) {
+                if (cmdline.hasOption("l")) {
+                    String[] arguments = cmdline.getOptionValues("l");
+                    System.out.println("Login: " + arguments[0]);
+                }
 
-            if (cmdline.hasOption("l")) {
-                String[] arguments = cmdline.getOptionValues("l");
-                System.out.println("Login: " + arguments[0]);
-            }
+                if (cmdline.hasOption("p")) {
+                    String[] arguments = cmdline.getOptionValues("p");
+                    System.out.println("Password: " + arguments[0]);
+                }
 
-            if (cmdline.hasOption("p")) {
-                String[] arguments = cmdline.getOptionValues("p");
-                System.out.println("Password: " + arguments[0]);
-            }
-
-            if (cmdline.hasOption("re")) {
-                String[] arguments = cmdline.getOptionValues("re");
-                System.out.println("Resource:" + arguments[0]);
-            }
-            if (cmdline.hasOption("ro")) {
-                String[] arguments = cmdline.getOptionValues("ro");
-                System.out.println("Role:" + arguments[0]);
-            }
-            printhelp(forhelp);
+                if (cmdline.hasOption("re")) {
+                    String[] arguments = cmdline.getOptionValues("re");
+                    System.out.println("Resource: " + arguments[0]);
+                }
+                if (cmdline.hasOption("ro")) {
+                    String[] arguments = cmdline.getOptionValues("ro");
+                    System.out.println("Role: " + arguments[0]);
+                }
+            } else printhelp(forhelp);
         } catch (ParseException e) {
             printhelp(forhelp);
         }
@@ -50,8 +50,7 @@ public class Parse {
     }
 
     private void printhelp(HelpFormatter forhelp) {
-        if ((cmdline.hasOption("h")) || (cmdline == null)) {
-
+        if (cmdline.hasOption("h")) {
             forhelp.printHelp("HEEELP", "This is help-information", options, "The End");
             System.exit(0);
         }
