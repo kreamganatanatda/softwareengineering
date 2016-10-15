@@ -42,13 +42,19 @@ public class Parse {
                 String[] arguments = cmdline.getOptionValues("ro");
                 System.out.println("Role:" + arguments[0]);
             }
+            printhelp(forhelp);
         } catch (ParseException e) {
-            if ((cmdline.hasOption("h")) || (cmdline == null)) {
-                forhelp.printHelp("HEEELP", "This is help-information", options, "The End");
-                System.exit(0);
-            }
+            printhelp(forhelp);
         }
 
+    }
+
+    private void printhelp(HelpFormatter forhelp) {
+        if ((cmdline.hasOption("h")) || (cmdline == null)) {
+
+            forhelp.printHelp("HEEELP", "This is help-information", options, "The End");
+            System.exit(0);
+        }
     }
 }
 
