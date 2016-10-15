@@ -53,7 +53,7 @@ public class Parse {
     }
 
     private void printhelp(HelpFormatter forhelp) {
-        if (cmdline.hasOption("h")) {
+        if (cmdline.hasOption("h")||cmdline==null) {
             forhelp.printHelp("HEEELP", "This is help-information", options, "The End");
             System.exit(0);
         }
