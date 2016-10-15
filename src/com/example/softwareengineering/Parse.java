@@ -1,6 +1,6 @@
 package com.example.softwareengineering;
-
 import org.apache.commons.cli.*;
+import static com.example.softwareengineering.ArrayofUsers.*;
 
 
 public class Parse {
@@ -20,18 +20,18 @@ public class Parse {
     public void ParseCMD() throws ParseException {
         CommandLineParser cmdLinePosixParser = new PosixParser();
         HelpFormatter forhelp = new HelpFormatter();
-
+        ArrayofUsers aou = new ArrayofUsers();
         try {
             cmdline = cmdLinePosixParser.parse(options, arg);
             if (cmdline != null) {
                 if (cmdline.hasOption("l")) {
-                    String[] arguments = cmdline.getOptionValues("l");
-                    System.out.println("Login: " + arguments[0]);
+                    aou.setLogin(cmdline.getOptionValue("l"));
+                    System.out.println("Login: " + aou.getLogin());
                 }
 
                 if (cmdline.hasOption("p")) {
-                    String[] arguments = cmdline.getOptionValues("p");
-                    System.out.println("Password: " + arguments[0]);
+                    aou.setPassword(cmdline.getOptionValue("p"));
+                    System.out.println("Password: " + aou.getPassword());
                 }
 
                 if (cmdline.hasOption("re")) {
