@@ -31,16 +31,16 @@ public class Parse {
 
             if (cmdline.hasOption("p")) {
                 String[] arguments = cmdline.getOptionValues("p");
-                System.out.println("Password:" + arguments[1]);
+                System.out.println("Password: " + arguments[0]);
             }
 
             if (cmdline.hasOption("re")) {
                 String[] arguments = cmdline.getOptionValues("re");
-                System.out.println("Resource:" + arguments[2]);
+                System.out.println("Resource:" + arguments[0]);
             }
             if (cmdline.hasOption("ro")) {
                 String[] arguments = cmdline.getOptionValues("ro");
-                System.out.println("Role:" + arguments[3]);
+                System.out.println("Role:" + arguments[0]);
             }
         } catch (ParseException e) {
             if ((cmdline.hasOption("h")) || (cmdline == null)) {
