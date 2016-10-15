@@ -42,6 +42,9 @@ public class Parse {
                     String[] arguments = cmdline.getOptionValues("ro");
                     System.out.println("Role: " + arguments[0]);
                 }
+                if (cmdline.hasOption("h")){
+                    printhelp(forhelp);
+                }
             } else printhelp(forhelp);
         } catch (ParseException e) {
             printhelp(forhelp);
