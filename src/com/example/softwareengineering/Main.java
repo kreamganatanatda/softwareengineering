@@ -52,13 +52,14 @@ public class Main {
                 if (resP) {
                     System.out.println("Successfully");
                     System.exit(0);
+                } else {
+                    System.out.println("Wrong password");
+                    System.exit(2);
                 }
             } else {
                 System.out.println("Unknown user");
                 System.exit(1);
             }
-            System.out.println("Wrong password");
-            System.exit(2);
         } else if (userdata.authorization()) {
         } else {
             System.out.println("ERROR!!!");
