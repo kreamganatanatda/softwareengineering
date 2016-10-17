@@ -18,10 +18,10 @@ public class Main {
         anArrayOfUsers.add(new User(2, "jrow", "Qweqrty12", "Jane Row"));
 
 
-        anArrayOfRoles.add(new Role(1, 1, READ.code(), "a"));
-        anArrayOfRoles.add(new Role(2, 1, WRITE.code(), "a.b"));
-        anArrayOfRoles.add(new Role(3, 2, EXECUTE.code(), "a.b.c"));
-        anArrayOfRoles.add(new Role(4, 1, EXECUTE.code(), "a.bc"));
+        anArrayOfRoles.add(new Role(1, 1, READ, "a"));
+        anArrayOfRoles.add(new Role(2, 1, WRITE, "a.b"));
+        anArrayOfRoles.add(new Role(3, 2, EXECUTE, "a.b.c"));
+        anArrayOfRoles.add(new Role(4, 1, EXECUTE, "a.bc"));
 
 
 //        for (int i = 0; i < anArrayOfUsers.size(); i++) {
@@ -46,23 +46,50 @@ public class Main {
         if (userdata.isEmpty()) {
             System.exit(0);
         } else if (userdata.authentication()) {
-            boolean resL = checkLogin(userdata, anArrayOfUsers);
-            if (resL) {
-                boolean resP = checkPassword(userdata, anArrayOfUsers);
-                if (resP) {
-                    System.out.println("Successfully");
-                    System.exit(0);
-                } else {
-                    System.out.println("Wrong password");
-                    System.exit(2);
-                }
+//            Спрашиваем у класса userdata достаточно ли ему данных для аутентифиц
+//            Хватает
+//
+//            Пытаемся аутентифицировать для всех 3х сценариев,
+//            Если неуспешно то выходим с ошибкой аутент
+            tryAuthent(anArrayOfUsers, userdata);
+
+//            Спрашиваем у класса userdata хватает ли ему данных для авториз
+            boolean authorization = userdata.authorization();
+//            Не хватает: выходим успешно (т.к.аутентиф вышла бы при неуспехе)
+
+            if (!authorization) {
+                System.exit(0);
+                //            Хватает: Пытаемся авторизировать
             } else {
-                System.out.println("Unknown user");
-                System.exit(1);
+                //            Если авториз неуспешна то выходим с ошибкой авториз
+//
+//            Спрашиваем у класса userdata достаточно ли ему данных для акк
+//            не хвтает: выходим успешно (т.к. авториз вышла бы при неуспехе)
+//            хватает: пытаемся акк
+                //tryAuthor();
             }
-        } else if (userdata.authorization()) {
+
+
+
         } else {
-            System.out.println("ERROR!!!");
+            System.exit(0);
+        }
+    }
+
+    private static void tryAuthent(ArrayList<User> anArrayOfUsers, Userdata userdata) {
+        boolean resL = checkLogin(userdata, anArrayOfUsers);
+        if (resL) {
+            boolean resP = checkPassword(userdata, anArrayOfUsers);
+            if (resP) {
+                System.out.println("Successfully");
+
+            } else {
+                System.out.println("Wrong password");
+                System.exit(2);
+            }
+        } else {
+            System.out.println("Unknown user");
+            System.exit(1);
         }
     }
 
