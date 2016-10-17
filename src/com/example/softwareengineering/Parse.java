@@ -1,6 +1,6 @@
 package com.example.softwareengineering;
+
 import org.apache.commons.cli.*;
-import static com.example.softwareengineering.ArrayofUsers.*;
 
 
 public class Parse {
@@ -20,32 +20,32 @@ public class Parse {
     public void ParseCMD() throws ParseException {
         CommandLineParser cmdLinePosixParser = new PosixParser();
         HelpFormatter forhelp = new HelpFormatter();
-        ArrayofUsers aou = new ArrayofUsers();
+        Userdata aou = new Userdata();
         try {
             cmdline = cmdLinePosixParser.parse(options, arg);
-            if (cmdline != null) {
-                if (cmdline.hasOption("l")) {
-                    aou.setLogin(cmdline.getOptionValue("l"));
-                    System.out.println("Login: " + aou.getLogin());
-                }
+            if (cmdline.hasOption("l")) {
+                aou.setLogin(cmdline.getOptionValue("l"));
+                System.out.println("Login: " + aou.getLogin());
+            }
 
-                if (cmdline.hasOption("p")) {
-                    aou.setPassword(cmdline.getOptionValue("p"));
-                    System.out.println("Password: " + aou.getPassword());
-                }
+            if (cmdline.hasOption("p")) {
+                aou.setPassword(cmdline.getOptionValue("p"));
+                System.out.println("Password: " + aou.getPassword());
+            }
 
-                if (cmdline.hasOption("re")) {
-                    aou.setResourse(cmdline.getOptionValue("re"));
-                    System.out.println("Resource: " + aou.getResourse());
-                }
-                if (cmdline.hasOption("ro")) {
-                    aou.setRole(cmdline.getOptionValue("ro"));
-                    System.out.println("Role: " + aou.getRole());
-                }
-                if (cmdline.hasOption("h")){
-                    printhelp(forhelp);
-                }
-            } else printhelp(forhelp);
+            if (cmdline.hasOption("re")) {
+                aou.setResourse(cmdline.getOptionValue("re"));
+                System.out.println("Resource: " + aou.getResourse());
+            }
+            if (cmdline.hasOption("ro")) {
+                aou.setRole(cmdline.getOptionValue("ro"));
+                System.out.println("Role: " + aou.getRole());
+            }
+            if (cmdline.hasOption("h") || aou.isEmpty()) {
+                printhelp(forhelp);
+            }
+            //aou.authentication();
+
         } catch (ParseException e) {
             printhelp(forhelp);
         }
@@ -53,10 +53,10 @@ public class Parse {
     }
 
     private void printhelp(HelpFormatter forhelp) {
-        if (cmdline.hasOption("h")||cmdline==null) {
-            forhelp.printHelp("HEEELP", "This is help-information", options, "The End");
-            System.exit(0);
-        }
+        forhelp.printHelp("HEEELP", "This is help-information", options, "The End");
+        System.exit(0);
     }
+
+
 }
 
