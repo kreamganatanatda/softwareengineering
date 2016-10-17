@@ -17,7 +17,7 @@ public class Parse {
         this.arg = arg;
     }
 
-    public void ParseCMD() throws ParseException {
+    public Userdata parseCMD() throws ParseException {
         CommandLineParser cmdLinePosixParser = new PosixParser();
         HelpFormatter forhelp = new HelpFormatter();
         Userdata aou = new Userdata();
@@ -49,12 +49,12 @@ public class Parse {
         } catch (ParseException e) {
             printhelp(forhelp);
         }
-
+        return aou;
     }
 
     private void printhelp(HelpFormatter forhelp) {
         forhelp.printHelp("HEEELP", "This is help-information", options, "The End");
-        System.exit(0);
+
     }
 
 

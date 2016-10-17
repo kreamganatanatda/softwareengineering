@@ -42,8 +42,44 @@ public class Main {
 //
 //        }
 
-        new Parse(arg).ParseCMD();
+        Userdata userdata = new Parse(arg).parseCMD();
+        if (userdata.isEmpty()) {
+            System.exit(0);
+        } else if (userdata.authentication()) {
+            boolean resL = checkLogin(userdata, anArrayOfUsers);
+            if (resL) {
+                boolean resP = checkPassword(userdata, anArrayOfUsers);
+                if (resP) {
+                    System.out.println("Successfully");
+                    System.exit(0);
+                }
+            } else {
+                System.out.println("Wrong login ");
+                System.exit(1);
+            }
+            System.out.println("Wrong password");
+            System.exit(2);
+        } else if (userdata.authorization()) {
+        } else {
+            System.out.println("ERROR!!!");
+        }
+    }
 
-        //System.exit(0);
+    private static boolean checkLogin(Userdata userdata, ArrayList<User> anArrayOfUsers) {
+        for (User anArrayOfUser : anArrayOfUsers) {
+            if (userdata.getLogin().equals(anArrayOfUser.Login)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean checkPassword(Userdata userdata, ArrayList<User> anArrayOfUsers) {
+        for (User anArrayOfUser : anArrayOfUsers) {
+            if (userdata.getPassword().equals(anArrayOfUser.Password)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
