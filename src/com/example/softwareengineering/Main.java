@@ -54,7 +54,7 @@ public class Main {
                     System.exit(0);
                 }
             } else {
-                System.out.println("Wrong login ");
+                System.out.println("Unknown user");
                 System.exit(1);
             }
             System.out.println("Wrong password");
@@ -76,7 +76,8 @@ public class Main {
 
     private static boolean checkPassword(Userdata userdata, ArrayList<User> anArrayOfUsers) {
         for (User anArrayOfUser : anArrayOfUsers) {
-            if (userdata.getPassword().equals(anArrayOfUser.Password)) {
+            if (userdata.getLogin().equals(anArrayOfUser.Login)
+                    && userdata.getPassword().equals(anArrayOfUser.Password)) {
                 return true;
             }
         }
