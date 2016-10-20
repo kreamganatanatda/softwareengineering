@@ -108,14 +108,6 @@ public class Main {
     }
 
     private static boolean checkRole(Userdata userdata, ArrayList<Role> anArrayOfRoles) {
-//        for (User anArrayOfUser : anArrayOfUsers) {
-//            for (Role anArrayOfRole : anArrayOfRoles)
-//                if (userdata.getLogin().equals(anArrayOfUser.Login)
-//                        && userdata.getPassword().equals(anArrayOfUser.Password)
-//                        && userdata.getRole().equals(anArrayOfRole.Name)) {
-//                    return true;
-//                }
-//        }
         for (Role anArrayOfRole : anArrayOfRoles) {
             if (userdata.getRole().equals(anArrayOfRole.Name)) {
                 return true;
@@ -126,15 +118,6 @@ public class Main {
 
     private static boolean checkResourse(Userdata userdata,
                                          ArrayList<Role> anArrayOfRoles) {
-//        for (User anArrayOfUser : anArrayOfUsers) {
-//            for (Role anArrayOfRole : anArrayOfRoles)
-//                if (userdata.getLogin().equals(anArrayOfUser.Login)
-//                        && userdata.getPassword().equals(anArrayOfUser.Password)
-//                        && userdata.getRole().equals(anArrayOfRole.Name)
-//                        && userdata.getResourse().equals(anArrayOfRole.Resource)) {
-//                    return true;
-//                }
-//        }
         for (Role anArrayOfRole : anArrayOfRoles) {
             if (userdata.getRole().equals(anArrayOfRole.Name)
             && userdata.getResourse().equals(anArrayOfRole.Resource)) {
