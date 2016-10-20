@@ -31,10 +31,9 @@ public class Userdata {
         return ((arrlogin != null) && (arrpassword != null));
     }
 
-    public boolean authorization(){
-        return (authentication()&& (arrrole == null) && (arrresourse == null));
+    public boolean authorization() {
+        return (authentication() && (arrrole != null) && (arrresourse != null));
     }
-
 
 
     public void setLogin(String login) {

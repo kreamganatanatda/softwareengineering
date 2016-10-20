@@ -18,29 +18,10 @@ public class Main {
         anArrayOfUsers.add(new User(2, "jrow", "Qweqrty12", "Jane Row"));
 
 
-        anArrayOfRoles.add(new Role(1, 1, READ, "a"));
-        anArrayOfRoles.add(new Role(2, 1, WRITE, "a.b"));
-        anArrayOfRoles.add(new Role(3, 2, EXECUTE, "a.b.c"));
-        anArrayOfRoles.add(new Role(4, 1, EXECUTE, "a.bc"));
-
-
-//        for (int i = 0; i < anArrayOfUsers.size(); i++) {
-//            if (anArrayOfUsers.get(0).Login != ) {
-//                System.out.println("User is not found\n");
-//                //System.exit(1);
-//                //неверно сравнивает аргументы
-//            } else System.out.println("User is found\n");
-//            break;
-//        }
-//        for (int i = 0; i < anArrayOfUsers.size(); i++) {
-//            if (anArrayOfUsers.get(i).Password != args[2]) {
-//                System.out.println("Wrong password\n");
-//                //System.exit(2);
-//                //неверно сравнивает аргументы
-//            } else System.out.println("Correct password\n");
-//            break;
-//
-//        }
+        anArrayOfRoles.add(new Role(1, 1, "READ", "a"));
+        anArrayOfRoles.add(new Role(2, 1, "WRITE", "a.b"));
+        anArrayOfRoles.add(new Role(3, 2, "EXECUTE", "a.b.c"));
+        anArrayOfRoles.add(new Role(4, 1, "EXECUTE", "a.bc"));
 
         Userdata userdata = new Parse(arg).parseCMD();
         if (userdata.isEmpty()) {
@@ -56,7 +37,6 @@ public class Main {
 //            Спрашиваем у класса userdata хватает ли ему данных для авториз
             boolean authorization = userdata.authorization();
 //            Не хватает: выходим успешно (т.к.аутентиф вышла бы при неуспехе)
-
             if (!authorization) {
                 System.exit(0);
                 //            Хватает: Пытаемся авторизировать
@@ -66,7 +46,7 @@ public class Main {
 //            Спрашиваем у класса userdata достаточно ли ему данных для акк
 //            не хвтает: выходим успешно (т.к. авториз вышла бы при неуспехе)
 //            хватает: пытаемся акк
-                tryAuthor(anArrayOfUsers, anArrayOfRoles, userdata);
+                tryAuthor(anArrayOfRoles, userdata);
             }
 
 
@@ -92,10 +72,10 @@ public class Main {
         }
     }
 
-    private static void tryAuthor(ArrayList<User> anArrayOfUsers, ArrayList<Role> anArrayOfRoles, Userdata userdata) {
-        boolean resRo = checkRole(userdata, anArrayOfUsers, anArrayOfRoles);
+    private static void tryAuthor(ArrayList<Role> anArrayOfRoles, Userdata userdata) {
+        boolean resRo = checkRole(userdata, anArrayOfRoles);
         if (resRo){
-            boolean resRe = checkResourse(userdata, anArrayOfUsers, anArrayOfRoles);
+            boolean resRe = checkResourse(userdata, anArrayOfRoles);
             if (resRe) {
                 System.out.println("Successfully Author.");
             } else {
@@ -127,29 +107,38 @@ public class Main {
         return false;
     }
 
-    private static boolean checkRole(Userdata userdata, ArrayList<User> anArrayOfUsers,
-                                     ArrayList<Role> anArrayOfRoles) {
-        for (User anArrayOfUser : anArrayOfUsers) {
-            for (Role anArrayOfRole : anArrayOfRoles)
-                if (userdata.getLogin().equals(anArrayOfUser.Login)
-                        && userdata.getPassword().equals(anArrayOfUser.Password)
-                        && userdata.getRole().equals(anArrayOfRole.Name)) {
-                    return true;
-                }
+    private static boolean checkRole(Userdata userdata, ArrayList<Role> anArrayOfRoles) {
+//        for (User anArrayOfUser : anArrayOfUsers) {
+//            for (Role anArrayOfRole : anArrayOfRoles)
+//                if (userdata.getLogin().equals(anArrayOfUser.Login)
+//                        && userdata.getPassword().equals(anArrayOfUser.Password)
+//                        && userdata.getRole().equals(anArrayOfRole.Name)) {
+//                    return true;
+//                }
+//        }
+        for (Role anArrayOfRole : anArrayOfRoles) {
+            if (userdata.getRole().equals(anArrayOfRole.Name)) {
+                return true;
+            }
         }
         return false;
     }
 
-    private static boolean checkResourse(Userdata userdata, ArrayList<User> anArrayOfUsers,
+    private static boolean checkResourse(Userdata userdata,
                                          ArrayList<Role> anArrayOfRoles) {
-        for (User anArrayOfUser : anArrayOfUsers) {
-            for (Role anArrayOfRole : anArrayOfRoles)
-                if (userdata.getLogin().equals(anArrayOfUser.Login)
-                        && userdata.getPassword().equals(anArrayOfUser.Password)
-                        && userdata.getRole().equals(anArrayOfRole.Name)
-                        && userdata.getResourse().equals(anArrayOfRole.Resource)) {
-                    return true;
-                }
+//        for (User anArrayOfUser : anArrayOfUsers) {
+//            for (Role anArrayOfRole : anArrayOfRoles)
+//                if (userdata.getLogin().equals(anArrayOfUser.Login)
+//                        && userdata.getPassword().equals(anArrayOfUser.Password)
+//                        && userdata.getRole().equals(anArrayOfRole.Name)
+//                        && userdata.getResourse().equals(anArrayOfRole.Resource)) {
+//                    return true;
+//                }
+//        }
+        for (Role anArrayOfRole : anArrayOfRoles) {
+            if (userdata.getResourse().equals(anArrayOfRole.Resource)) {
+                return true;
+            }
         }
         return false;
     }
