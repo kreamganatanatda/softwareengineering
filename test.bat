@@ -21,5 +21,5 @@ java -cp "out\artifacts\softwareengineering\soft.jar" com.example.softwareengine
 echo !!! %errorlevel%
 java -cp "out\artifacts\softwareengineering\soft.jar" com.example.softwareengineering.Main -l jdoe -p sup3rpaZZ -ro WRITE -re a > NUL
 echo !!! %errorlevel%
-java -cp "out\artifacts\softwareengineering\soft.jar" com.example.softwareengineering.Main -l jdoe -p sup3rpaZZ -ro WRITE -re a.b.c > NUL
+java -cp "out\artifacts\softwareengineering\soft.jar" com.example.softwareengineering.Main -l jdoe -p sup3rpaZZ -ro WRITE -re a.bc > NUL
 echo !!! %errorlevel%

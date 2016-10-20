@@ -136,7 +136,8 @@ public class Main {
 //                }
 //        }
         for (Role anArrayOfRole : anArrayOfRoles) {
-            if (userdata.getResourse().equals(anArrayOfRole.Resource)) {
+            if (userdata.getRole().equals(anArrayOfRole.Name)
+            && userdata.getResourse().equals(anArrayOfRole.Resource)) {
                 return true;
             }
         }
