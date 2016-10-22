@@ -1,8 +1,5 @@
 package com.example.softwareengineering;
 
-/**
- * Created by Гертруда on 15.10.2016.
- */
 public class Userdata {
     private String arrlogin;
     private String arrpassword;
@@ -67,4 +64,5 @@ public class Userdata {
     public String getRole() {
         return arrrole;
     }
+
 }
