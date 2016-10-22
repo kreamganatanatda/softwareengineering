@@ -3,25 +3,25 @@ package com.example.softwareengineering;
 public class Userdata {
     private String arrlogin;
     private String arrpassword;
-    private String arrresourse;
+    private String arrresource;
     private String arrrole;
 
-    public Userdata(String arrlogin, String arrpassword, String arrresourse, String arrrole) {
+    public Userdata(String arrlogin, String arrpassword, String arrresource, String arrrole) {
         this.arrlogin = arrlogin;
         this.arrpassword = arrpassword;
-        this.arrresourse = arrresourse;
+        this.arrresource = arrresource;
         this.arrrole = arrrole;
     }
 
     public Userdata() {
         this.arrlogin = null;
         this.arrpassword = null;
-        this.arrresourse = null;
+        this.arrresource = null;
         this.arrrole = null;
     }
 
     public boolean isEmpty() {
-        return ((arrlogin == null) && (arrrole == null) && (arrpassword == null) && (arrresourse == null));
+        return ((arrlogin == null) && (arrrole == null) && (arrpassword == null) && (arrresource == null));
     }
 
     public boolean authentication() {
@@ -29,7 +29,7 @@ public class Userdata {
     }
 
     public boolean authorization() {
-        return (authentication() && (arrrole != null) && (arrresourse != null));
+        return (authentication() && (arrrole != null) && (arrresource != null));
     }
 
 
@@ -41,8 +41,8 @@ public class Userdata {
         this.arrpassword = password;
     }
 
-    public void setResourse(String resourse) {
-        this.arrresourse = resourse;
+    public void setResource(String resource) {
+        this.arrresource = resource;
     }
 
     public void setRole(String role) {
@@ -57,8 +57,8 @@ public class Userdata {
         return arrpassword;
     }
 
-    public String getResourse() {
-        return arrresourse;
+    public String getResource() {
+        return arrresource;
     }
 
     public String getRole() {

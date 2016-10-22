@@ -34,8 +34,8 @@ public class Parse {
             }
 
             if (cmdline.hasOption("re")) {
-                aou.setResourse(cmdline.getOptionValue("re"));
-                System.out.println("Resource: " + aou.getResourse());
+                aou.setResource(cmdline.getOptionValue("re"));
+                System.out.println("Resource: " + aou.getResource());
             }
             if (cmdline.hasOption("ro")) {
                 aou.setRole(cmdline.getOptionValue("ro"));

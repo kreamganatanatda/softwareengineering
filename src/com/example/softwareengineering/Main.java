@@ -1,7 +1,6 @@
 package com.example.softwareengineering;
 
 import org.apache.commons.cli.ParseException;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
@@ -74,7 +73,7 @@ public class Main {
     private static void tryAuthor(ArrayList<Role> anArrayOfRoles, Userdata userdata) {
         boolean resRo = checkRole(userdata, anArrayOfRoles);
         if (resRo) {
-            boolean resRe = checkResourse(userdata, anArrayOfRoles);
+            boolean resRe = checkResource(userdata, anArrayOfRoles);
             if (resRe) {
                 System.out.println("Successfully Author.");
             } else {
@@ -115,11 +114,11 @@ public class Main {
         return false;
     }
 
-    private static boolean checkResourse(Userdata userdata,
+    private static boolean checkResource(Userdata userdata,
                                          ArrayList<Role> anArrayOfRoles) {
         for (Role anArrayOfRole : anArrayOfRoles) {
             if (userdata.getRole().equals(anArrayOfRole.Name)
-                    && userdata.getResourse().equals(anArrayOfRole.Resource)) {
+                    && userdata.getResource().equals(anArrayOfRole.Resource)) {
                 return true;
             }
         }
