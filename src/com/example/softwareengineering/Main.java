@@ -1,10 +1,9 @@
 package com.example.softwareengineering;
 
 import org.apache.commons.cli.ParseException;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-
-import static com.example.softwareengineering.Permission.*;
 
 public class Main {
 
@@ -74,7 +73,7 @@ public class Main {
 
     private static void tryAuthor(ArrayList<Role> anArrayOfRoles, Userdata userdata) {
         boolean resRo = checkRole(userdata, anArrayOfRoles);
-        if (resRo){
+        if (resRo) {
             boolean resRe = checkResourse(userdata, anArrayOfRoles);
             if (resRe) {
                 System.out.println("Successfully Author.");
@@ -120,11 +119,27 @@ public class Main {
                                          ArrayList<Role> anArrayOfRoles) {
         for (Role anArrayOfRole : anArrayOfRoles) {
             if (userdata.getRole().equals(anArrayOfRole.Name)
-            && userdata.getResourse().equals(anArrayOfRole.Resource)) {
+                    && userdata.getResourse().equals(anArrayOfRole.Resource)) {
                 return true;
             }
         }
         return false;
     }
 
+    private static String[] divide(String Resource) {
+        ArrayList<String> divided = new ArrayList<String>();
+        int i = 0;
+        for (int j = 0; j < Resource.length(); j++) {
+            if (Resource.charAt(j) == '.') {
+                if (j > i) {
+                    divided.add(Resource.substring(i, j));
+                }
+                i = j + i;
+            }
+        }
+        if (i < Resource.length()) {
+            divided.add(Resource.substring(i));
+        }
+        return divided.toArray(new String[divided.size()]);
+    }
 }
